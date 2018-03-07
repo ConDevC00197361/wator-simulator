@@ -120,36 +120,41 @@ int main() {
      */
     const int ROW = 600;
     /*
+     * CHANGE FOR ARRAY SIZE
+     */
+    const int SIZE = 200;
+    /*
      * DO NOT CHANGE !!!!
      */
     const int COLUMN = ROW;
-    const int PER_ROW = ROW / 100;
-    const int PER_COLUMN = COLUMN / 100;
+    
+    const int PER_ROW = ROW / SIZE;
+    const int PER_COLUMN = COLUMN / SIZE;
     std::shared_ptr<wator>wObj(new wator(ROW / PER_ROW, COLUMN / PER_COLUMN, numberOfFish, numberOfShark, changeWorld, sharkoccurence));
     swimmer** swimmerTwoD = create2DArray(ROW / PER_ROW, COLUMN / PER_COLUMN);
    
     int fishSize = 5;
     
-    if(ROW<=200)
+    if(SIZE<=100)
     {
-        fishSize = 1;
+        fishSize = 5;
     }
-    else if(ROW<=400)
+    else if(SIZE<=200)
     {
-       fishSize = 2; 
+       fishSize = 3; 
     }
-    else if(ROW<=500)
-    {
-        fishSize = 3; 
-    }
-    else if(ROW<=800)
-    {
-        fishSize = 5; 
-    }
-    else if(ROW<=100)
-    {
-        fishSize = 8; 
-    }
+//    else if(ROW<=500)
+//    {
+//        fishSize = 2; 
+//    }
+//    else if(ROW<=800)
+//    {
+//        fishSize = 5; 
+//    }
+//    else if(ROW<=100)
+//    {
+//        fishSize = 8; 
+//    }
     sf::RectangleShape shark;
     shark.setFillColor(sf::Color(sf::Color::Black));
     shark.setSize(sf::Vector2f(fishSize, fishSize));
@@ -185,6 +190,12 @@ int main() {
     int testCounter = 0;
     sf::Clock clock;
     clock.restart();
+    
+    /*
+     * TIme test
+     */
+    sf::Clock testClock;
+    testClock.restart();
 
     while (window.isOpen()) {
 
@@ -202,9 +213,14 @@ int main() {
         /*
          *  Wator (Window) for testing !!!!
          */
-//        if (testCounter == 1000) {
-//            window.close();
-//        }
+        if (testCounter == 1000) {
+            window.close();
+            sf::Time testTime = testClock.getElapsedTime();
+            std::cout << "TIME is : " << testTime.asSeconds() << std::endl;
+            // clock_t fStart = clock();
+           // std::cout << "Time taken " << ((fStart - tStart)/CLOCKS_PER_SEC) << std::endl;
+            //printf("Time taken: %.2fs\n", (double)(clock() - tStart)/CLOCKS_PER_SEC);
+        }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
             window.close();
         }
@@ -229,7 +245,7 @@ int main() {
             /*
              * Sample to draw Wator 2D_Array
              */
-            //#pragma omp parallel for num_threads(4)
+            #pragma omp parallel for num_threads(2)
             for (int i = 0; i < ROW; ++i) {
                 //std::cout << "Number of threads in main" << omp_get_num_threads() << std::endl;
 
@@ -239,7 +255,7 @@ int main() {
                         /*
                          * Shark
                          */
-                        // #pragma omp critical(swimmerTwoD)
+                        #pragma omp critical(swimmerTwoD)
 
                         if (swimmerTwoD[i / PER_ROW][y / PER_COLUMN].IsHasShark()) {
                             SFML_Vector[i / PER_ROW][y / PER_COLUMN] = shark;
@@ -258,6 +274,7 @@ int main() {
                         else {
                             SFML_Vector[i / PER_ROW][y / PER_COLUMN].setPosition(sf::Vector2f(-30, -30));
                         }
+                    
 
 
                        // window.draw(SFML_Vector[i / PER_ROW][y / PER_COLUMN]);

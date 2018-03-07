@@ -71,6 +71,7 @@ wator::wator(int row, int column,int numberOfFish, int numberOfShark, int change
     /*
      * Initialize wator 2D vector to row * column scale to the screen size
      */
+    this->ROW_MAX = row - 1;
     swimmerTwoD = create2DArray(row,column);
 
     /*
@@ -89,6 +90,7 @@ wator::wator(int row, int column,int numberOfFish, int numberOfShark, int change
  */
 swimmer** wator::create2DArray(unsigned height, unsigned width)
 {
+    std::cout << "SIZE IS " << height << " * " << width << std::endl;
      swimmer** swimmerTwoD = 0;
      swimmerTwoD = new swimmer*[height];
 
@@ -288,7 +290,7 @@ void wator::copySwimmer(swimmer* from, swimmer* to, int direction) {
 void wator::moveWator() {
 
     //std::cout << "Openmp max threads " << omp_get_max_threads() << std::endl;
-    //#pragma omp parallel for num_threads(4) 
+    #pragma omp parallel for num_threads(2) 
     for (int i = 0; i < row; ++i) {
         //std::cout << "Number of threads in moveWator" << omp_get_num_threads() << std::endl;
         for (int y = 0; y < column; ++y) {
@@ -297,8 +299,8 @@ void wator::moveWator() {
             /*
              * Move LEFT
              */
-           // #pragma omp critical(swimmerTwoD)
-           // {
+            #pragma omp critical(swimmerTwoD)
+            {
                 if (randMove == LEFT) {
                     if (i == ZERO) {
                         copySwimmer(&swimmerTwoD[i][y], &swimmerTwoD[ROW_MAX][y], ROW_MIN);
@@ -336,7 +338,7 @@ void wator::moveWator() {
                         copySwimmer(&swimmerTwoD[i][y], &swimmerTwoD[i][y + moveOne], 1);
                     }
                 }
-           // }
+            }
 
         }
     }

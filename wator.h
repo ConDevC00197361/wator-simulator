@@ -112,9 +112,9 @@ private:
      */
 	const int ZERO = 0;
     /*!
-     * \brief constant variable use to make code more readable and understandable with meaningful text instaed number
+     * \brief variable use to make code more readable and understandable with meaningful text instaed number
      */
-	const int ROW_MAX = 99;
+	int ROW_MAX = 99;
     /*!
      * \brief constant variable use to make code more readable and understandable with meaningful text instaed number
      */
