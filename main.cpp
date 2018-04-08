@@ -120,9 +120,16 @@ int main() {
      */
     const int ROW = 600;
     /*
-     * CHANGE FOR ARRAY SIZE
+     * CHANGE FOR WATOR SIZE!!!
+     * SIZE 200 IS 200 * 200 = 40000 
+     * TEST VALUES ARE 100 , 120 , 150 , 200
+     * SOME VALUE CAUSING SEGMENTATION FAULT !!!!!!
      */
-    const int SIZE = 200;
+
+    int SIZE = 100;
+    std::cout << "ENTER THE SIZE OF THE WATOR ? (EG: 100,120,150,200): " << std::endl;
+    std::cin >> SIZE ;
+    
     /*
      * DO NOT CHANGE !!!!
      */
@@ -139,7 +146,7 @@ int main() {
     {
         fishSize = 5;
     }
-    else if(SIZE<=200)
+    else if(SIZE>100)
     {
        fishSize = 3; 
     }
@@ -245,7 +252,7 @@ int main() {
             /*
              * Sample to draw Wator 2D_Array
              */
-            #pragma omp parallel for num_threads(2)
+           // #pragma omp parallel for num_threads(2)
             for (int i = 0; i < ROW; ++i) {
                 //std::cout << "Number of threads in main" << omp_get_num_threads() << std::endl;
 
