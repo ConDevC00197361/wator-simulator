@@ -252,7 +252,7 @@ int main() {
             /*
              * Sample to draw Wator 2D_Array
              */
-           // #pragma omp parallel for num_threads(2)
+            #pragma omp parallel for num_threads(4)
             for (int i = 0; i < ROW; ++i) {
                 //std::cout << "Number of threads in main" << omp_get_num_threads() << std::endl;
 
