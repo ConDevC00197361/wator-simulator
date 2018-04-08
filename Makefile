@@ -18,7 +18,7 @@ run:wator-simulation
 	@echo '*********************'
 	@echo '*********************'
 	./wator-simulation
-	//gprof wator-simulation
+	#//gprof wator-simulation
 
 main.o: main.cpp
 	g++ -std=c++11 -c "main.cpp" -o main.o #-fopenmp
