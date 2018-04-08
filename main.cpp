@@ -252,7 +252,7 @@ int main() {
             /*
              * Sample to draw Wator 2D_Array
              */
-           // #pragma omp parallel for num_threads(4)
+            #pragma omp parallel for num_threads(4)
             for (int i = 0; i < ROW; ++i) {
                 //std::cout << "Number of threads in main" << omp_get_num_threads() << std::endl;
 
@@ -262,7 +262,7 @@ int main() {
                         /*
                          * Shark
                          */
-                       // #pragma omp critical(swimmerTwoD)
+                        #pragma omp critical(swimmerTwoD)
 
                         if (swimmerTwoD[i / PER_ROW][y / PER_COLUMN].IsHasShark()) {
                             SFML_Vector[i / PER_ROW][y / PER_COLUMN] = shark;
