@@ -289,10 +289,9 @@ void wator::copySwimmer(swimmer* from, swimmer* to, int direction) {
  */
 void wator::moveWator() {
 
-    //std::cout << "Openmp max threads " << omp_get_max_threads() << std::endl;
-    #pragma omp parallel for num_threads(4) 
+
     for (int i = 0; i < row; ++i) {
-        //std::cout << "Number of threads in moveWator" << omp_get_num_threads() << std::endl;
+       
         for (int y = 0; y < column; ++y) {
 
             int randMove = fishMoveRandomNumber();
