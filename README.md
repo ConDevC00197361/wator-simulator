@@ -13,9 +13,13 @@ It will build, run the simulator <br>
 TEST : Sequential, Parallel 2,4,8 threads<br>
 
 Sequential Test:<be>
-
+![sequential_test](https://user-images.githubusercontent.com/32070154/39638911-a3509f96-4fbf-11e8-9ab1-0fd6dfd42e49.png)
+<br>
 Parallel Test 2 threads:<br>
-
+![parallel_two_threads_test](https://user-images.githubusercontent.com/32070154/39638953-c3f78034-4fbf-11e8-861b-3124ad529720.png)
+<br>
 Parallel Test 4 threads:<br>
-
+![parallel_four_threads_test](https://user-images.githubusercontent.com/32070154/39638975-d606e8e6-4fbf-11e8-8495-04134997cd02.png)
+<br>
 Parallel Test 8 threads:<br> 
+![parallel_eight_threads-test](https://user-images.githubusercontent.com/32070154/39638990-df568514-4fbf-11e8-9eed-929926e4d86b.png)
