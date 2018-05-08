@@ -6,7 +6,7 @@ use - make - command to build the project <br>
 In the terminal enter the size of the WATOR !!!<br>
 <br>
 **PLEASE NOTE! The dynamic size change is just a feature to run Wator simulation without change the source code!<br>
-Not all size tested, some of the size can cause segmentation fault! EG: 80x80 ! MAX SIZE IS 300 x 300 (90000) **<br>
+Not all size tested, some of the size can cause segmentation fault! EG: 80x80 ! MAX SIZE IS 300 x 300 (90000)**<br>
 Please use the recommended and tested Wator sizes!<br>
 ENTER THE SIZE OF THE WATOR ? (EG: 100,120,150,200):
 <br>
