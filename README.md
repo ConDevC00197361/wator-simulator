@@ -4,11 +4,14 @@ Every case was tested 8 times.<br>
 use - make - command to build the project <br>
 <br>
 In the terminal enter the size of the WATOR !!!<br>
-
+<br>
+**PLEASE NOTE! The dynamic size change is just a feature to run Wator simulation without change the source code!<br>
+Not all size tested, some of the size can cause segmantation fault! EG: 80x80 !**<br>
+Please use the recommended and tested Wator sizes!<br>
 ENTER THE SIZE OF THE WATOR ? (EG: 100,120,150,200):
 <br>
 It will build, run the simulator <br>
- - and create the Doxygen documentation to the wator-simulator project as well.<br>
+ - and will create the Doxygen documentation to the wator-simulator project as well.<br>
 <br>
 TEST : Sequential, Parallel 2,4,8 threads<br>
 
